@@ -6,7 +6,9 @@
       <b-row>
         <b-col sm="8" offset="2">
           <QuestionBox
-          :currentquestions="questions[index]"
+          v-if="questions.length"
+          :currentQuestion="questions[index]"
+          :next="next"
           />
           </b-col>
       </b-row>
@@ -31,6 +33,11 @@ export default {
     return {
       questions:[],
       index:0
+    }
+  },
+  methods:{
+    next(){
+      this.index++
     }
   },
   mounted: function(){
